@@ -1,0 +1,221 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #000;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+@keyframes textFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes textZoomIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes textSlideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes textSlideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes textRotateIn {
+    from { opacity: 0; transform: rotate(-180deg); }
+    to { opacity: 1; transform: rotate(0); }
+}
+
+#slide1 {
+    background: url('background1.gif') center center/cover no-repeat;
+}
+
+#slide2, #slide5, #slide8, #slide11, #slide14 {
+    background: url('background2.gif') center center/cover no-repeat;
+}
+
+#slide3, #slide6, #slide9, #slide12, #slide15 {
+    background: url('background3.gif') center center/cover no-repeat;
+}
+
+h1, p {
+    font-family: 'Merriweather', serif;
+    color: #fff;
+    text-shadow: 1px 1px 2px #ffd700;
+    margin: 0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+p {
+    font-size: 1.8em;
+    margin: 10px 0;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #800080;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    z-index: 10;
+    position: relative;
+}
+
+button:hover {
+    background-color: #4b0082;
+}
+
+.polaroid {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    border: 10px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: rotate(-10deg);
+    top: 10%;
+    right: 5%;
+    z-index: 5;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+}
+
+.balloon {
+    position: absolute;
+    width: 60px;
+    height: 90px;
+    z-index: 5;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#balloon1 {
+    background: url('balloon1.png') center center/contain no-repeat;
+    animation-name: balloonMove1;
+}
+
+#balloon2 {
+    background: url('balloon2.png') center center/contain no-repeat;
+    animation-name: balloonMove2;
+}
+
+#balloon3 {
+    background: url('balloon3.png') center center/contain no-repeat;
+    animation-name: balloonMove3;
+}
+
+#balloon4 {
+    background: url('balloon4.png') center center/contain no-repeat;
+    animation-name: balloonMove4;
+}
+
+@keyframes balloonMove1 {
+    0%, 100% { top: 0; left: 0; }
+    25% { top: 25%; left: 25%; }
+    50% { top: 50%; left: 50%; }
+    75% { top: 25%; left: 25%; }
+}
+
+@keyframes balloonMove2 {
+    0%, 100% { top: 0; right: 0; }
+    25% { top: 25%; right: 25%; }
+    50% { top: 50%; right: 50%; }
+    75% { top: 25%; right: 25%; }
+}
+
+@keyframes balloonMove3 {
+    0%, 100% { bottom: 0; left: 0; }
+    25% { bottom: 25%; left: 25%; }
+    50% { bottom: 50%; left: 50%; }
+    75% { bottom: 25%; left: 25%; }
+}
+
+@keyframes balloonMove4 {
+    0%, 100% { bottom: 0; right: 0; }
+    25% { bottom: 25%; right: 25%; }
+    50% { bottom: 50%; right: 50%; }
+    75% { bottom: 25%; right: 25%; }
+}
+
+.text {
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+#slide1 .text { animation-name: textFadeIn; }
+#slide2 .text { animation-name: textZoomIn; }
+#slide3 .text { animation-name: textSlideInLeft; }
+#slide4 .text { animation-name: textSlideInRight; }
+#slide5 .text { animation-name: textRotateIn; }
+#slide6 .text { animation-name: textFadeIn; }
+#slide7 .text { animation-name: textZoomIn; }
+#slide8 .text { animation-name: textSlideInLeft; }
+#slide9 .text { animation-name: textSlideInRight; }
+#slide10 .text { animation-name: textRotateIn; }
